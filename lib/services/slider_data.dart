@@ -14,7 +14,7 @@ List<sliderModel> getSliders() {
   slider.add(categoryModel);
   categoryModel = new sliderModel();
 
-  categoryModel.image = "images/business.jpg";
+  categoryModel.image = "images/general.jpg";
   categoryModel.name = "Bow tothe blah blah";
   slider.add(categoryModel);
   categoryModel = new sliderModel();

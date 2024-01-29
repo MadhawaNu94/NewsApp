@@ -40,98 +40,205 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Container(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 15.0,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 20.0),
-              height: 70,
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return CategoryTitle(
-                      image: categories[index].image,
-                      categoryName: categories[index].categoryName,
-                    );
-                  }),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Breaking NEWS!",
-                      style: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22),
-                    ),
-                    Text(
-                      "View All",
-                      style: TextStyle(
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                    ),
-                  ],
-                )),
-            CarouselSlider.builder(
-                itemCount: sliders.length,
-                itemBuilder: (context, index, realIndex) {
-                  String? res = sliders[index].image;
-                  String? res1 = sliders[index].name;
-                  return buildImage(res!, index, res1!);
-                },
-                options: CarouselOptions(
-                  height: 250,
-                  //viewportFraction: 1,
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  enlargeStrategy: CenterPageEnlargeStrategy.height,
-                  onPageChanged: (index, reason) {
-                    activeIndex = index;
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 15.0,
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 20.0),
+                height: 70,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      return CategoryTitle(
+                        image: categories[index].image,
+                        categoryName: categories[index].categoryName,
+                      );
+                    }),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Breaking NEWS!",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22),
+                      ),
+                      Text(
+                        "View All",
+                        style: TextStyle(
+                            color: Colors.blueGrey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                    ],
+                  )),
+              CarouselSlider.builder(
+                  itemCount: sliders.length,
+                  itemBuilder: (context, index, realIndex) {
+                    String? res = sliders[index].image;
+                    String? res1 = sliders[index].name;
+                    return buildImage(res!, index, res1!);
                   },
-                )),
-            SizedBox(
-              height: 30.0,
-            ),
-            buildIndicator(),
-            SizedBox(
-              height: 20.0,
-            ),
-            Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Trending NEWS!",
-                      style: TextStyle(
+                  options: CarouselOptions(
+                    height: 250,
+                    //viewportFraction: 1,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    enlargeStrategy: CenterPageEnlargeStrategy.height,
+                    onPageChanged: (index, reason) {
+                      activeIndex = index;
+                    },
+                  )),
+              SizedBox(
+                height: 20.0,
+              ),
+              buildIndicator(),
+              SizedBox(
+                height: 10.0,
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Trending NEWS!",
+                        style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 22,
-                          fontFamily: "Pacifico"),
-                    ),
-                    Text(
-                      "View All",
-                      style: TextStyle(
+                        ),
+                      ),
+                      Text(
+                        "View All",
+                        style: TextStyle(
                           color: Colors.blueGrey,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          fontFamily: "Pacifico"),
+                        ),
+                      ),
+                    ],
+                  )),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Material(
+                  elevation: 3.0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 5.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Image.asset(
+                            "images/business.jpg",
+                            height: 120,
+                            width: 120,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "Turn the paper All",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "then you can view all",
+                                style: TextStyle(
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                )),
-          ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Material(
+                  elevation: 3.0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 5.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Image.asset(
+                            "images/business.jpg",
+                            height: 120,
+                            width: 120,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "Turn the paper All",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width / 1.8,
+                              child: Text(
+                                "then you can view all",
+                                style: TextStyle(
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

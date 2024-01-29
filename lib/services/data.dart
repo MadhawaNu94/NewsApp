@@ -5,12 +5,12 @@ List<CategoryModel> getCategories() {
   CategoryModel categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "Business";
-  categoryModel.image = "images/business.jpg";
+  categoryModel.image = "images/bussiness.gif";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "Entertainment";
-  categoryModel.image = "images/entertaainment.png";
+  categoryModel.image = "images/entertainment.gif";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
@@ -20,17 +20,17 @@ List<CategoryModel> getCategories() {
   categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "Health";
-  categoryModel.image = "images/business.jpg";
+  categoryModel.image = "images/heaalth.gif";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "General";
-  categoryModel.image = "images/business.jpg";
+  categoryModel.image = "images/general.jpg";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
   categoryModel.categoryName = "Science";
-  categoryModel.image = "images/business.jpg";
+  categoryModel.image = "images/scieence.gif";
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
