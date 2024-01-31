@@ -27,6 +27,7 @@ class _HomeState extends State<Home> {
 
   int activeIndex = 0;
   @override
+  
   void initState() {
     categories = getCategories();
     getSlider();
